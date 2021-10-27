@@ -15,4 +15,6 @@ jobs:
       - run: echo 'Hello GitHub actions'
       - run: pwd
       - run: cd pipelines
+      - run: pwd
+      - run: ls
       - run: python -m unittest discover .
