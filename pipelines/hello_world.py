@@ -5,9 +5,6 @@ class HelloWorld:
         return "Hello World"
 
     def second_hello_world(self, a=None, b=None):
-        """second_hello_world(a=None, b=None) -> None
-
-        Here I continue documentation
-        """
+        """New docstring"""
 
         print("Second hello world")
