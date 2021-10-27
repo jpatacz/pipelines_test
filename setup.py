@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pipelines_test',
-    version='1.0.0',
+    version='0.1.0',
     description='Test Pipelines',
     author='Julia Patacz',
     author_email='julia.patacz@skillcorner.com',
