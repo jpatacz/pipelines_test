@@ -1,5 +1,8 @@
 name: packaging-and-releasing
-on: [push]
+on:
+  push:
+    branches:
+      - github_actions
 jobs:
   test-packaging-and-releasing:
     runs-on: ubuntu-latest
