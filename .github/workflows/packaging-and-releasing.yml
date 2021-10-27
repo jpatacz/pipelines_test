@@ -22,5 +22,8 @@ jobs:
             node-version: '14'
         - run: python3 -m pip install --upgrade build
         - run: python3 -m build
-        - run: python3 -m pip install --upgrade twine
-        - run: python3 -m twine upload --repository testpypi dist/*
+        - name: Publish distribution 📦 to Test PyPI
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+         password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+         repository_url: https://github.com/jpatacz/pipelines_test
