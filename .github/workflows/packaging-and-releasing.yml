@@ -2,7 +2,9 @@ name: packaging-and-releasing
 on:
   pull_request:
     types:
-      - opened
+      - closed
+    branches:
+      - master
 jobs:
   packaging-and-releasing:
     runs-on: ubuntu-latest
