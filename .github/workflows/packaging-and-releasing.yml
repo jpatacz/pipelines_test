@@ -1,0 +1,21 @@
+name: packaging-and-releasing
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - 1.[0-9]+.[0-9]+
+jobs:
+  packaging-and-releasing:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: python3 -m pip install --upgrade build
+      - run: python3 -m build
+      - uses: pypa/gh-action-pypi-publish@master
+        with:
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
