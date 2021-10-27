@@ -5,6 +5,6 @@ class HelloWorld:
         return "Hello World"
 
     def second_hello_world(self, a=None, b=None):
-        """New docstring in version 0.1.0"""
+        """New docstring in version 0.3.0"""
 
         print("Second hello world")
