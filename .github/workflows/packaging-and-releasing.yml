@@ -15,9 +15,6 @@ jobs:
         with:
           node-version: '14'
       - run: sed -r 's/(.*)(version=)(.*.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' setup.py > setup.py.tmp && mv setup.py.tmp setup.py
-      - run: git add setup.py
-      - run: git commit -m "Incrementing version"
-      - run: git push
       - run: python3 -m pip install --upgrade build
       - run: python3 -m build
       - uses: pypa/gh-action-pypi-publish@master
