@@ -17,9 +17,11 @@ jobs:
       - run: python3 -m pip install --upgrade build
       - run: pip install --upgrade yolk3k
       - run: VERSION=$(yolk -V skillcorner | awk '{print $2}' | sed -r 's/([0-9]+).([0-9]+).([0-9]+)/echo "\1.\2.$((\3+1))"/ge')
+      - run: echo $VERSION
       - run: sed -r -i "s/(.*version=.*)([0-9]+.[0-9]+.[0-9]+)(.*)/\1$VERSION\3/g" setup.py
+      - run: cat setup.py
       - run: python3 -m build
       - uses: pypa/gh-action-pypi-publish@master
         with:
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-          repository_url: https://test.pypi.org/legacy/
+          repository_url: https://test.pypiiii.org/legacy/
