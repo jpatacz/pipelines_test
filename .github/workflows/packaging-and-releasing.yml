@@ -14,8 +14,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - run: sed -r 's/(.*)(version=)(.*.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' setup.py > setup.py.tmp && mv setup.py.tmp setup.py
       - run: python3 -m pip install --upgrade build
+      - run: pip install yolk3
+      - run: VERSION=$(yolk -V skillcorner | awk '{print $2}' | sed -r 's/([0-9]+).([0-9]+).([0-9]+)/echo "\1.\2.$((\3+1))"/ge')
+      - run: sed -r -i "s/(.*version=.*)([0-9]+.[0-9]+.[0-9]+)(.*)/\1$VERSION\3/g" setup.py
       - run: python3 -m build
       - uses: pypa/gh-action-pypi-publish@master
         with:
