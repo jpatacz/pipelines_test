@@ -1,11 +1,9 @@
 name: packaging-and-releasing
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
-      - master
       - 0.[0-9]+.[0-9]+
+
 jobs:
   packaging-and-releasing:
     runs-on: ubuntu-latest
@@ -16,6 +14,9 @@ jobs:
           node-version: '14'
       - run: python3 -m pip install --upgrade build
       - run: pip install --upgrade yolk3k
+      - run: yolk -V skillcorner
+      - run: yolk -V skillcorner | awk '{print $2}'
+      - run: yolk -V skillcorner | awk '{print $2}' | sed -r 's/([0-9]+).([0-9]+).([0-9]+)/echo "\1.\2.$((\3+1))"/ge'
       - run: VERSION=$(yolk -V skillcorner | awk '{print $2}' | sed -r 's/([0-9]+).([0-9]+).([0-9]+)/echo "\1.\2.$((\3+1))"/ge')
       - run: echo $VERSION
       - run: sed -r -i "s/(.*version=.*)([0-9]+.[0-9]+.[0-9]+)(.*)/\1$VERSION\3/g" setup.py
