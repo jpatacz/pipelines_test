@@ -1,6 +1,6 @@
 class HelloWorld:
     def hello_world(self):
-        """This is hello world function docstring with new words"""
+        """This is hello world function docstring"""
 
         return "Hello World"
 
