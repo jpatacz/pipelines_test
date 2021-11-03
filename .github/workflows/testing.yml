@@ -1,8 +1,15 @@
 name: testing
 on:
   push:
+    branches:
+      - '**'
+  pull_request:
+    types:
+      - closed
     branches-ignore:
       - 0.[0-9]+.[0-9]+
+      - master
+
 jobs:
   test:
     runs-on: ubuntu-latest
