@@ -31,6 +31,7 @@ jobs:
           node-version: '14'
       - run: cat setup.py
       - run: python3 -m pip install --upgrade build
+      - run: python3 -m build
 #      - run: pip install --upgrade yolk3k
 #      - run: yolk -V skillcorner
 #      - run: yolk -V skillcorner | awk '{print $2}'
@@ -39,7 +40,7 @@ jobs:
 #      - run: echo $VERSION
 #      - run: sed -r -i "s/(.*version=.*)([0-9]+.[0-9]+.[0-9]+)(.*)/\1$VERSION\3/g" setup.py
 #      - run: cat setup.py
-      - run: python3 -m build
+
 
       - name: Release package
       - uses: pypa/gh-action-pypi-publish@master
