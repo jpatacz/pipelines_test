@@ -1,6 +1,8 @@
 name: testing
 on:
-  [push]
+  push:
+    branches-ignore:
+      - 0.[0-9]+.[0-9]+
 jobs:
   test:
     runs-on: ubuntu-latest
