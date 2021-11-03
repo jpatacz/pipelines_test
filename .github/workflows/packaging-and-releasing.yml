@@ -5,37 +5,29 @@ on:
       - closed
     branches:
       - master
-      - 0.[0-9]+.[0-9]+
+      - [0-9]+.[0-9]+.[0-9]+
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - run: python -m unittest discover
   packaging-and-releasing:
-    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
 
       - name: Edit version
-        run: sed -r -i 's/(.*)(version=)(.*.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' setup.py
+        run: sed -r -i 's/(.*)(version=.*)([0-9]+).([0-9]+).([0-9]+)(.*)/echo "\1\2\3.\4.$((\5+1))\6"/ge' setup.py
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
           default_author: github_actions
-          message: "Incrementing patch version in setup.py"
-          add: 'setup.py '
+          message: 'Incrementing patch version in setup.py'
+          add: 'setup.py'
 
-      - name: Build package
+      - name: Setup node
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+
       - name: Display setup.py
         run: cat setup.py
 
@@ -48,5 +40,5 @@ jobs:
       - name: Release package
         uses: pypa/gh-action-pypi-publish@master
         with:
-          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-          repository_url: https://test.pypiiii.org/legacy/
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          repository_url: https://pypi.org/legacy/
