@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkut@v2
+        uses: actions/checkout@v2
 
       - name: Edit version
         run: sed -r -i 's/(.*)(version=)(.*.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' setup.py
