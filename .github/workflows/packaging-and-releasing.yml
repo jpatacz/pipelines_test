@@ -1,9 +1,11 @@
 name: packaging-and-releasing
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
+      - master
       - 0.[0-9]+.[0-9]+
-
 jobs:
   test:
     runs-on: ubuntu-latest
