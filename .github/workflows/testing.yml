@@ -20,8 +20,8 @@ jobs:
       run: echo ${{github.ref}}
 
     - name: Check condition
-      run: echo ${{ !endswith(github.ref, '[0-9]+.3.0') }}
+      run: echo ${{ !endswith(github.ref, '0.3.0') }}
 
     - name: Edit version
       run: sed -r -i 's/(.*)(version=.*)([0-9]+).([0-9]+).([0-9]+)(.*)/echo "\1\2\3.\4.$((\5+1))\6"/ge' setup.py
-      if: ${{ !endswith(github.ref, '[0-9]+.3.0') }}
+      if: ${{ !endswith(github.ref, '0.3.0') }}
