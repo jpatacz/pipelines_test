@@ -18,7 +18,7 @@ jobs:
 
       - name: Edit version
         run: sed -r -i 's/(.*)(version=.*)([0-9]+).([0-9]+).([0-9]+)(.*)/echo "\1\2\3.\4.$((\5+1))\6"/ge' setup.py
-        if: "!contains(github.head_ref, '[0-9]+.[0-9]+.0')"
+        if: "$GITHUB_HEAD_REF != '[0-9]+.[0-9]+.0'"
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
