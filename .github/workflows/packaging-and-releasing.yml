@@ -13,22 +13,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Check current branch
-        id: check-branch
-        run: |
-          if [[ ${{ github.head_ref }} =~ ^.*[0-9]+.[0-9]+.0$ ]]; then
-              echo ::set-output name=match::true
-          fi
-
-      - name: Check condition
-        run: echo ${{ steps.check-branch.outputs.match }}
-
       - name: Edit version
-        if: steps.check-branch.outputs.match != 'true'
         run: sed -r -i 's/(.*)(version=.*)([0-9]+).([0-9]+).([0-9]+)(.*)/echo "\1\2\3.\4.$((\5+1))\6"/ge' setup.py
 
       - name: Commit changes
-        if: steps.check-branch.outputs.match != 'true'
         uses: EndBug/add-and-commit@v7
         with:
           default_author: github_actions
@@ -41,7 +29,6 @@ jobs:
           node-version: '14'
 
       - name: Display setup.py
-        if: steps.check-branch.outputs.match != 'true'
         run: cat setup.py
 
       - name: Install build
