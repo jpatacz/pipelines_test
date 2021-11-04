@@ -2,7 +2,7 @@ name: packaging-and-releasing
 on:
   pull_request:
     types:
-      - merged
+      - closed
     branches:
       - master
       - '[0-9]+.[0-9]+.[0-9]+'
