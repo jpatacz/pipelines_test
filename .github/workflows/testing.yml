@@ -19,8 +19,8 @@ jobs:
     - name: Check current branch
       id: check-branch
       run: |
-        if [[ ${{ github.ref }} == 0.3.0 ]]; then
-        echo ::set-output name=match::true
+        if [[ ${{ github.ref }} =~ ^.*0.3.0$ ]]; then
+            echo ::set-output name=match::true
         fi
 
     - name: Check condition
