@@ -11,3 +11,4 @@ class TestHelloWorld(TestCase):
         print("This is test for hello world")
         hw = HelloWorld()
         self.assertEqual(hw.hello_world(), "Hello World")
+        print("test")
