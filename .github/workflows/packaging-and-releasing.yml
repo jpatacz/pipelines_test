@@ -19,7 +19,7 @@ jobs:
       - name: Branch protection OFF
         uses: octokit/request-action@v2.x
         with:
-          route: PUT /repos/:repository/branches/1.0.0/protection
+          route: PUT /repos/:repository/branches/0.3.0/protection
           repository: ${{ github.repository }}
           required_status_checks: |
             null
@@ -50,7 +50,7 @@ jobs:
       - name: Branch protection ON
         uses: octokit/request-action@v2.x
         with:
-          route: PUT /repos/:repository/branches/1.0.0/protection
+          route: PUT /repos/:repository/branches/0.3.0/protection
           repository: ${{ github.repository }}
           mediaType: |
             previews: 
