@@ -7,5 +7,4 @@ class HelloWorld:
     def second_hello_world(self, a=None, b=None):
         """New docstring in version 0.3.5 changes"""
 
-
         print("Second hello world")
