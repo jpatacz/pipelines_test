@@ -10,13 +10,12 @@ jobs:
         with:
           node-version: '14'
       - run: python -m unittest discover
-      - name: Report test status
-      uses: actions/checkout@v2
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      with:
-        status: ${{ job.status }}
-      if: always()
+      - uses: actions/checkout@v2
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          status: ${{ job.status }}
+        if: always()
 
   condition:
     runs-on: ubuntu-latest
