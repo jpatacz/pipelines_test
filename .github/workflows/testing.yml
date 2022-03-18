@@ -10,7 +10,7 @@ jobs:
         with:
           node-version: '14'
       - run: python -m unittest discover
-      - uses: actions/checkout@v2
+      - uses: act10ns/slack@v1
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
