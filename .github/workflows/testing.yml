@@ -33,3 +33,11 @@ jobs:
     - name: Edit version
       if: steps.check-branch.outputs.match == 'true'
       run: sed -r -i 's/(.*)(version=.*)([0-9]+).([0-9]+).([0-9]+)(.*)/echo "\1\2\3.\4.$((\5+1))\6"/ge' setup.py
+
+    - name: Report test status
+      uses: actions/checkout@v2
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      with:
+        status: ${{ job.status }}
+      if: always()
