@@ -4,7 +4,7 @@ setup(
     name='pipelines_test',
     version='0.3.10',
     description='Test Pipelines',
-    author='Julia Patacz
+    author='Julia Patacz',
     author_email='julia.patacz.com',
     packages=['pipelines'],
     python_requires='>=3.6',
