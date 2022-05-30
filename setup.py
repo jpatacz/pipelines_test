@@ -4,7 +4,7 @@ setup(
     name='pipelines_test',
     version='0.3.16',
     description='Test Pipelines',
-    long_description='',
+    long_description='Test Pipelines',
     author='Julia Patacz',
     author_email='julia.patacz@gmail.com',
     packages=['pipelines'],
