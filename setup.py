@@ -4,7 +4,7 @@ setup(
     name='pipelines_test',
     version='0.3.15',
     description='Test Pipelines',
-    long_description='Maslo 2',
+    long_description='',
     author='Julia Patacz',
     author_email='julia.patacz@gmail.com',
     packages=['pipelines'],
