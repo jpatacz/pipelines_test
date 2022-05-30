@@ -30,7 +30,7 @@ jobs:
           restrictions: | 
             null
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_REPO_ADMIN_CI_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_REPO_ADMIN_TOKEN }}
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
@@ -39,6 +39,8 @@ jobs:
           default_author: github_actions
           message: 'Incrementing patch version in setup.py'
           add: 'setup.py'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_REPO_ADMIN_TOKEN }}
 
       - name: Setup node
         uses: actions/setup-node@v2
@@ -62,10 +64,11 @@ jobs:
           required_pull_request_reviews: |
             dismiss_stale_reviews: true
             required_approving_review_count: 1
-          restrictions: | 
+          restrictions: |
             null
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_REPO_ADMIN_CI_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_REPO_ADMIN_TOKEN }}
+
       - name: Display setup.py
         run: cat setup.py
 
@@ -78,4 +81,4 @@ jobs:
       - name: Release package
         uses: pypa/gh-action-pypi-publish@master
         with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
+          password: ${{ secrets.ADMIN_PYPI_API_TOKEN }}
