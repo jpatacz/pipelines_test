@@ -6,7 +6,7 @@ setup(
     description='Test Pipelines',
     long_description='Maslo 2',
     author='Julia Patacz',
-    author_email='julia.patacz.com',
+    author_email='julia.patacz@gmail.com',
     packages=['pipelines'],
     python_requires='>=3.6',
     install_requires=[
