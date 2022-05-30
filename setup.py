@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pipelines_test',
-    version='0.3.12',
+    version='0.3.13',
     description='Test Pipelines',
     long_description='Maslo',
     author='Julia Patacz',
