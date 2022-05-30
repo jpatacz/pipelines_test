@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pipelines_test',
-    version='1.0.4',
+    version='1.0.5',
     description='SkillCorner API client',
     author='SkillCorner',
     author_email='support@skillcorner.com',
