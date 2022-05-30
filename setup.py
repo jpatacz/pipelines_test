@@ -2,18 +2,14 @@ from setuptools import setup
 
 setup(
     name='pipelines_test',
-    version='1.0.5',
-    description='SkillCorner API client',
-    author='SkillCorner',
-    author_email='support@skillcorner.com',
+    version='0.3.10',
+    description='Test Pipelines',
+    author='Julia Patacz
+    author_email='julia.patacz.com',
     packages=['pipelines'],
     python_requires='>=3.6',
     install_requires=[
         'requests>=2.20.0',
         'makefun>=1.10.0'
     ],
-    extras_require={
-        'test': 'mock==4.0.3',
-        'release': ['Sphinx==4.2.0', 'sphinx-rtd-theme==1.0.0']
-    }
 )
