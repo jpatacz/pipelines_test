@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pipelines_test',
-    version='0.3.17',
+    version='0.3.18',
     author='Julia Patacz',
     author_email='julia.patacz@gmail.com',
     packages=['pipelines'],
